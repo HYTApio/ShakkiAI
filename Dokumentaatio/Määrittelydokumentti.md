@@ -10,6 +10,8 @@ Ohjelma tulee saamaan pelaajan siirtoja syötteinä ja pelilaudalla nappulat lii
 
 Aikavaativuuksista en osaa vielä sanoa, mutta syvyyden 4 siirrot tapahtuisi alle 10 sekunnissa olisi tavoite.
 
+Ohjaajan kanssa sovittu pythonin chess kirjaston käytöstä pelin pohjana. Kuitenkin ohjelman pitää itse tarkistaa onko peli shakissa tai shakkimatissa eikä saa käyttää siinä kirjaston apufunktioita.
+
 ## Lähteet
 [Python shakki kirjasto](https://python-chess.readthedocs.io/en/latest/)
 
