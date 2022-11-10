@@ -19,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: poetry install
       - name: Install chess
-        run: pip install chess
+        run: pip3 install chess
       - name: Run tests
         run: poetry run coverage run --branch -m pytest
       - name: Coverage report
