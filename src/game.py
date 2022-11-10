@@ -3,6 +3,7 @@ from checkmate import is_check
 
 
 def play():
+    """Shakkipelin käyttöliittymä jolle annetaan siirtojen arvoja"""
     board = chess.Board()
     while True:
         print(board)
@@ -34,6 +35,6 @@ def play():
                     break
             board.push(chess.Move.from_uci(siirto))
 
-    
+
 if __name__=="__main__":
     play()
