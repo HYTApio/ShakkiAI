@@ -12,7 +12,7 @@ def _below(board, turn, krank, kfile):
         if board.piece_type_at(square_number) in [4, 5] and board.color_at(square_number) != turn:
             return True
         #if there is other pawn first than enemy queen / rook no threat
-        if board.piece_type_at(square_number) is None:
+        if board.piece_type_at(square_number) is not None:
             return False
 
     return False
@@ -103,7 +103,7 @@ def _diag_above(board, turn, krank, kfile):
 
             #if there is other pawn first than enemy queen / rook no threat
             if board.piece_type_at(square_number) is not None:
-                right = False
+                left = False
 
         square_number = chess.square(rightkfile, rank)
         if rightkfile < 8 and right:
@@ -149,7 +149,7 @@ def _diag_below(board, turn, krank, kfile):
 
             #if there is other pawn first than enemy queen / rook no threat
             if board.piece_type_at(square_number) is not None:
-                right = False
+                left = False
 
         square_number = chess.square(rightkfile, rank)
         if rightkfile < 8 and right:
