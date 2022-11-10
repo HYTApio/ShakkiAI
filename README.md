@@ -1,6 +1,8 @@
 # ShakkiAI
 ![GHA workflow badge](https://github.com/HYTapio/ShakkiAI/workflows/CI/badge.svg)
 
+[![codecov](https://codecov.io/gh/HYTApio/ShakkiAI/branch/main/graph/badge.svg?token=BM5NCFA1ON)](https://codecov.io/gh/HYTApio/ShakkiAI)
+
 ## Viikkoraportit
 
 [Viikkoraportti 1](https://github.com/HYTApio/ShakkiAI/blob/main/Dokumentaatio/Viikkoraportti1.md)
