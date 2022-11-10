@@ -20,12 +20,14 @@ jobs:
         run: pip install poetry
       - name: Install dependencies
         run: poetry install
+      - name: Go to virtual enviroinment
+        run: poetry shell
       - name: Install chess
         run: pip install chess
       - name: Run tests
-        run: poetry run coverage run --branch -m pytest
+        run: run coverage run --branch -m pytest
       - name: Coverage report
-        run: poetry run coverage xml
+        run: run coverage xml
       - name: Coverage report to Codecov
         run: bash <(curl -s https://codecov.io/bash)
 
