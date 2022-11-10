@@ -1,4 +1,5 @@
 # ShakkiAI
+![GHA workflow badge](https://github.com/HYTapio/ShakkiAI/workflows/CI/badge.svg)
 
 ## Viikkoraportit
 
