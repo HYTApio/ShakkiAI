@@ -5,8 +5,8 @@ Juttelin ohjaajan kanssa toteutuksesta 45 minuuttia. Jatkoin tutustumista kirjas
 Toteutin is_check funktion joka kertoo onko peli shakissa. Loin myös pelille alkukantaisen käyttöliittymän testausta varten. Opin kuinka vaikeata shakin ohjelmointi voi olla...
 Seuraavaksi aion suunnitella is_checkmate funktion jotta voi alkaa luomaan shakki tekoälyä
 
-## 10.11 6 tuntia
-Muokkasin is_check funktiosta paremman näköisen. Loin githubiin actions testeille ja codecovin. Tein badget testeille, codecov ja pylint. Loin testit is_check funktiolle 100%. Korjasin is_check funktiosta löytyviä bugeja. 
+## 10.11 8 tuntia
+Muokkasin is_check funktiosta paremman näköisen. Loin githubiin actions testeille ja codecovin. Tein badget testeille, codecov ja pylint. Loin testit is_check funktiolle 100%. Korjasin is_check funktiosta löytyviä bugeja. Tein tasks joilla voi helpottaa komentojen käyttämistä. Kirjoitin dokumentaatiota hieman. Otin pylintin käyttöön ohjelmalle.
 
 ## Kysymykset ja vaikeudet
 * Nyt is_check tarkistaa aina koko pelilaudan, miten siitä voi saada sellaisen, että tarkistaa vain edellisen siirron tuomat mahdollisuudet shakkiin?
