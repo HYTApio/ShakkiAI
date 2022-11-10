@@ -36,5 +36,5 @@ def play():
             board.push(chess.Move.from_uci(siirto))
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     play()
