@@ -1,7 +1,7 @@
 # ShakkiAI
 ![GHA workflow badge](https://github.com/HYTapio/ShakkiAI/workflows/CI/badge.svg)
-
 [![codecov](https://codecov.io/gh/HYTApio/ShakkiAI/branch/main/graph/badge.svg?token=BM5NCFA1ON)](https://codecov.io/gh/HYTApio/ShakkiAI)
+[![linting: pylint](https://img.shields.io/badge/linting-pylint-yellowgreen)](https://github.com/PyCQA/pylint)
 
 ## Viikkoraportit
 
