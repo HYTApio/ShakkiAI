@@ -2,13 +2,14 @@ import unittest
 import checkmate
 import chess
 
+
 class TestCheckmate(unittest.TestCase):
     def setUp(self):
         self.board = chess.Board()
-    
+
     def test_beginning_not_check(self):
         self.assertEqual(checkmate.is_check(self.board), False)
-    
+
     def test_check_from_above(self):
         board = chess.Board('3qk3/8/8/8/8/8/8/3K4 w KQkq - 0 1')
         self.assertEqual(checkmate.is_check(board), True)
@@ -75,8 +76,6 @@ class TestCheckmate(unittest.TestCase):
         board = chess.Board('4K3/3P4/2b5/8/8/8/8/3k4 w KQkq - 0 1')
         self.assertEqual(checkmate.is_check(board), False)
 
-
     def test_check_knight(self):
         board = chess.Board('k7/8/8/2n5/4K3/8/8/8 w KQkq - 0 1')
         self.assertEqual(checkmate.is_check(board), True)
-
