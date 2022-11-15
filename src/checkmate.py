@@ -207,3 +207,28 @@ def is_check(board):
         return True
 
     return False
+
+def possible_moves(board):
+    """Checks possible moves in check if none checkmate
+
+    return Boolean value
+    """
+    turn = board.turn
+    king = board.king(board.turn)
+    krank = chess.square_rank(king)
+    kfile = chess.square_file(king)
+
+    # check possible king moves
+
+    for rank in range(krank-1, krank+2):
+        for file in range(kfile-1, kfile+2):
+            square_number = chess.square(file, rank)
+            if -1 < file < 8 and -1 < rank < 8:
+                if board.piece_type_at(square_number) is None or board.color_at(square_number) != turn:
+                    copy = board.copy()
+                    copy.push(chess.Move(king, square_number))
+                    copy.turn = turn
+                    if not is_check(copy):
+                        return True
+
+    return False
