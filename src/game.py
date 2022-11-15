@@ -1,5 +1,5 @@
 import chess
-from checkmate import is_check
+from checkmate import is_check, possible_moves
 
 
 def play():
@@ -8,8 +8,9 @@ def play():
     while True:
         print(board)
         if is_check(board):
-            print("shakki")
-            break
+            if not possible_moves(board):
+                print("shakkimatti")
+                break
 
         if board.turn == chess.WHITE:
             print("valkoisen vuoro")
