@@ -83,3 +83,7 @@ class TestCheckmate(unittest.TestCase):
     def test_move_from_check(self):
         board = chess.Board('k7/8/qqqqqqqq/8/4K3/8/8/8 w KQkq - 0 1')
         self.assertEqual(checkmate.possible_moves(board), False)
+
+    def test_move_from_check(self):
+        board = chess.Board('k7/8/q7/8/4K3/8/8/8 w KQkq - 0 1')
+        self.assertEqual(checkmate.possible_moves(board), True)
