@@ -1,3 +1,4 @@
+""" Module providing chess game base"""
 import chess
 
 
@@ -207,6 +208,7 @@ def is_check(board):
         return True
 
     return False
+
 
 def possible_moves(board):
     """Checks possible moves in check if none checkmate
