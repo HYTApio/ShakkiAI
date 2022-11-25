@@ -2,7 +2,7 @@
 import chess
 from checkmate import possible_moves
 from new_checkmate import is_check
-from new_minmax import find_best_move
+from minmax import find_best_move
 
 BIG_NUMBER = 100000000000
 SMALL_NUMBER = -10000000000
