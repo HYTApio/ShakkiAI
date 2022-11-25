@@ -9,7 +9,7 @@ piece_position_values = [
     0, 0, 0, 0, 0, 0, 0, 0,
     5, 10, 10, -20, -20, 10, 10, 5,
     5, -5, 0, 0, 0, 0, -5, 5,
-    0, 0, 5, 20, 20, 5, 0, 0,
+    0, 0, 5, 30, 30, 5, 0, 0,
     5, 5, 10, 25, 25, 10, 5, 5,
     10, 10, 20, 30, 30, 20, 10, 10,
     50, 50, 50, 50, 50, 50, 50, 50,
@@ -66,7 +66,7 @@ piece_position_values = [
 # Peli nappuloiden arvot
 # 0 = tyhjä, 1 = sotilas, 2 = ratsu, 3 = lähetti,
 # 4 = torni, 5 = kuningatar, 6 = kuningas
-piece_values = [None, 1, 3.1, 3.2, 5, 9, 10]
+piece_values = [None, 10, 31, 32, 50, 90, 100]
 
 def _value(board, piece, color):
     """ Calculates values for a type of pawn
