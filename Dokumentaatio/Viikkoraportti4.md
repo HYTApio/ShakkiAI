@@ -15,6 +15,6 @@ Tein testit uudelle shakki funktiolle. Korjasin shakkifunktion toimivaksi (teste
 Seuraavaksi pitäisi varmaan tehdä shakkimatti funktiosta täydellinen...
 
 ## Kysymyksiä
-Ei ole tältä viikolta oikein kysymyksiä. Onko tekemäni minimax oikein onnistunut iteratiivisen syvenemisen kannalta ? 
-
-Shakkimatti funktiosta saattaa herätä kysymyksiä ensiviikolla mutta se on sen ajan murhe.
+* Onko tekemäni minimax oikein onnistunut iteratiivisen syvenemisen kannalta ? 
+* Shakkimatti funktiosta saattaa herätä kysymyksiä ensiviikolla mutta se on sen ajan murhe.
+* Mitä muuta testausta voi tehdä kuin yksikkö testausta? Onko pelit toisia netistä löytyviä shakkibotteja vastaan tai itseäni vastaan hyvä?
