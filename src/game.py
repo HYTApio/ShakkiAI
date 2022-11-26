@@ -36,7 +36,7 @@ def play():
                     break
             board.push(chess.Move.from_uci(move))
             last_move = chess.Move.from_uci(move)
-        
+
 
 
 if __name__ == "__main__":

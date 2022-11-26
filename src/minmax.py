@@ -8,6 +8,10 @@ BIG_NUMBER = 100000000000
 SMALL_NUMBER = -10000000000
 
 def find_best_move(board):
+    """Finds best possible move with best outcome
+
+    returns move
+    """
     possible_moves = board.legal_moves
     moves = {}
 
@@ -49,13 +53,14 @@ def _minmax(board, alpha, beta, depth, last_move):
     if is_check(board, last_move):
         if checkmate(board) is False:
             if board.turn is True:
-                return (SMALL_NUMBER)
-            return (BIG_NUMBER)
-    
+                return SMALL_NUMBER
+            return BIG_NUMBER
+
     if depth <= 0:
         return heuristic(board)
-    
-    return _max_value(board, alpha, beta, depth, last_move) if board.turn is True else _min_value(board, alpha, beta, depth, last_move)
+
+    return (_max_value(board, alpha, beta, depth, last_move)
+    if board.turn is True else _min_value(board, alpha, beta, depth, last_move))
 
 def _max_value(board, alpha, beta, depth, last_move):
     """ max value from min max

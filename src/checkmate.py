@@ -183,7 +183,8 @@ def _knight(board, turn, krank, kfile):
                 square_number = chess.square(kfile-file, krank-rank)
                 if 0 <= square_number < 64:
                     # if knight
-                    if board.piece_type_at(square_number) in [2] and board.color_at(square_number) != turn and square_number >= 0:
+                    if (board.piece_type_at(square_number) in [2] and
+                    board.color_at(square_number) != turn and square_number >= 0):
                         return True
     return False
 
