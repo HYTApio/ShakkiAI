@@ -49,9 +49,9 @@ def find_best_move(board):
     return best_move
 
 def _minmax(board, alpha, beta, depth, last_move):
-
-    if is_check(board, last_move):
-        if checkmate(board) is False:
+    check = is_check(board, last_move)
+    if check[0]:
+        if checkmate(board, check[1]) is False:
             if board.turn is True:
                 return SMALL_NUMBER
             return BIG_NUMBER
