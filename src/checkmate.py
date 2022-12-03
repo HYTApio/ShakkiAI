@@ -91,14 +91,14 @@ def _diag_above(board, turn, krank, kfile):
         rightkfile += 1
         leftkfile -= 1
         square_number = chess.square(rightkfile, rank)
-        if rightkfile == kfile+1:
-            # if black pawn on white king
+        if rightkfile == kfile+1 and (square_number < 64 and square_number > -1):
+            # if black pawn on square
             if board.piece_type_at(square_number) in [1] and board.color_at(square_number) != turn and turn == chess.WHITE:
                 return True
 
         square_number = chess.square(leftkfile, rank)
-        if leftkfile == kfile-1:
-            # if black pawn on white king
+        if leftkfile == kfile-1 and (square_number < 64 and square_number > -1):
+            # if black pawn on square
             if board.piece_type_at(square_number) in [1] and board.color_at(square_number) != turn and turn == chess.WHITE:
                 return True
 
@@ -138,13 +138,13 @@ def _diag_below(board, turn, krank, kfile):
         rightkfile += 1
         leftkfile -= 1
         square_number = chess.square(rightkfile, rank)
-        if rightkfile == kfile+1:
+        if rightkfile == kfile+1 and (square_number < 64 and square_number > -1) :
             # if white pawn on black king
             if board.piece_type_at(square_number) in [1] and board.color_at(square_number) != turn and turn == chess.BLACK:
                 return True
 
         square_number = chess.square(leftkfile, rank)
-        if leftkfile == kfile-1:
+        if leftkfile == kfile-1 and (square_number < 64 and square_number > -1):
             # if white pawn on black king
             if board.piece_type_at(square_number) in [1] and board.color_at(square_number) != turn and turn == chess.BLACK:
                 return True
@@ -189,29 +189,28 @@ def _knight(board, turn, krank, kfile):
     return False
 
 
-def is_check(board):
+def is_attacked(board, square):
     """Checks if current game state is in check
 
     return Boolean value
     """
 
-    king = board.king(board.turn)
-    krank = chess.square_rank(king)
-    kfile = chess.square_file(king)
+    rank = chess.square_rank(square)
+    file = chess.square_file(square)
 
-    if _below(board, board.turn, krank, kfile) or _above(board, board.turn, krank, kfile):
+    if _below(board, board.turn, rank, file) or _above(board, board.turn, rank, file):
         return True
-    if _left(board, board.turn, krank, kfile) or _right(board, board.turn, krank, kfile):
+    if _left(board, board.turn, rank, file) or _right(board, board.turn, rank, file):
         return True
-    if _knight(board, board.turn, krank, kfile):
+    if _knight(board, board.turn, rank, file):
         return True
-    if _diag_above(board, board.turn, krank, kfile) or _diag_below(board, board.turn, krank, kfile):
+    if _diag_above(board, board.turn, rank, file) or _diag_below(board, board.turn, rank, file):
         return True
 
     return False
 
 
-def possible_moves(board):
+def possible_moves(board, attacked):
     """Checks possible moves in check if none checkmate
 
     return Boolean value
@@ -222,7 +221,6 @@ def possible_moves(board):
     kfile = chess.square_file(king)
 
     # check possible king moves
-
     for rank in range(krank-1, krank+2):
         for file in range(kfile-1, kfile+2):
             square_number = chess.square(file, rank)
@@ -231,7 +229,86 @@ def possible_moves(board):
                     copy = board.copy()
                     copy.push(chess.Move(king, square_number))
                     copy.turn = turn
-                    if not is_check(copy):
+                    if not is_attacked(copy, square_number):
                         return True
+
+    if len(attacked) > 1:
+        return False
+
+    defended = []
+    # checks if it is possible to kill the attacker
+    for square in attacked:
+        if not is_attacked(board, square):
+            defended.append(square)
+
+    if len(defended)==len(attacked):
+        return True
+
+    defended = []
+
+    for square in attacked:
+        arank = chess.square_rank(square)
+        afile = chess.square_file(square)
+        if krank == arank:
+            if afile < kfile:
+                for file in range(kfile-1, -1, -1):
+                    square_number = chess.square(file, krank)
+                    print(is_attacked(board, square_number))
+                    if is_attacked(board, square_number):
+                        defended.append(square_number)
+                        break
+
+            else:
+                for file in range(kfile+1, 8):
+                    square_number = chess.square(file, krank)
+                    if is_attacked(board, square_number):
+                        defended.append(square_number)
+                        break
+
+        elif kfile == afile:
+            if arank < krank:
+                for rank in range(krank-1, -1, -1):
+                    square_number = chess.square(kfile, rank)
+                    if is_attacked(board, square_number):
+                        defended.append(square_number)
+                        break
+            else:
+                for rank in range(krank+1, 8):
+                    square_number = chess.square(kfile, rank)
+                    if is_attacked(board, square_number):
+                        defended.append(square_number)
+                        break
+
+        elif abs(afile-kfile) == abs(arank-krank):
+            if arank < krank and afile < kfile:
+                for rank, file in zip(range(krank-1, -1, -1), range(kfile-1, -1, -1)):
+                    square_number = chess.square(file, rank)
+                    if is_attacked(board, square_number):
+                        defended.append(square_number)
+                        break
+
+            elif arank > krank and afile < kfile:
+                for rank, file in zip(range(krank+1, 8), range(kfile-1, -1, -1)):
+                    square_number = chess.square(file, rank)
+                    if is_attacked(board, square_number):
+                        defended.append(square_number)
+                        break
+
+            elif arank > krank and afile > kfile:
+                for rank, file in zip(range(krank+1, 8), range(kfile+1, 8)):
+                    square_number = chess.square(file, rank)
+                    if is_attacked(board, square_number):
+                        defended.append(square_number)
+                        break
+
+            elif arank < krank and afile > kfile:
+                for rank, file in zip(range(krank-1, -1, -1), range(kfile+1, 8)):
+                    square_number = chess.square(file, rank)
+                    if is_attacked(board, square_number):
+                        defended.append(square_number)
+                        break
+
+    if len(defended)==len(attacked):
+        return True
 
     return False
