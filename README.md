@@ -11,6 +11,10 @@
 
 [Viikkoraportti 3](https://github.com/HYTApio/ShakkiAI/blob/main/Dokumentaatio/Viikkoraportti3.md)
 
+[Viikkoraportti 4](https://github.com/HYTApio/ShakkiAI/blob/main/Dokumentaatio/Viikkoraportti4.md)
+
+[Viikkoraportti 5](https://github.com/HYTApio/ShakkiAI/blob/main/Dokumentaatio/Viikkoraportti5.md)
+
 
 ## Dokumentaatio
 
