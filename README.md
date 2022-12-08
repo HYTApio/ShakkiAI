@@ -5,15 +5,17 @@
 
 ## Viikkoraportit
 
-[Viikkoraportti 1](https://github.com/HYTApio/ShakkiAI/blob/main/Dokumentaatio/Viikkoraportti1.md)
+[Viikkoraportti 1](https://github.com/HYTApio/ShakkiAI/blob/main/Dokumentaatio/Viikkoreportit/Viikkoraportti1.md)
 
-[Viikkoraportti 2](https://github.com/HYTApio/ShakkiAI/blob/main/Dokumentaatio/Viikkoraportti2.md)
+[Viikkoraportti 2](https://github.com/HYTApio/ShakkiAI/blob/main/Dokumentaatio/Viikkoreportit/Viikkoraportti2.md)
 
-[Viikkoraportti 3](https://github.com/HYTApio/ShakkiAI/blob/main/Dokumentaatio/Viikkoraportti3.md)
+[Viikkoraportti 3](https://github.com/HYTApio/ShakkiAI/blob/main/Dokumentaatio/Viikkoreportit/Viikkoraportti3.md)
 
-[Viikkoraportti 4](https://github.com/HYTApio/ShakkiAI/blob/main/Dokumentaatio/Viikkoraportti4.md)
+[Viikkoraportti 4](https://github.com/HYTApio/ShakkiAI/blob/main/Dokumentaatio/Viikkoreportit/Viikkoraportti4.md)
 
-[Viikkoraportti 5](https://github.com/HYTApio/ShakkiAI/blob/main/Dokumentaatio/Viikkoraportti5.md)
+[Viikkoraportti 5](https://github.com/HYTApio/ShakkiAI/blob/main/Dokumentaatio/Viikkoreportit/Viikkoraportti5.md)
+
+[Viikkoraportti 6](https://github.com/HYTApio/ShakkiAI/blob/main/Dokumentaatio/Viikkoreportit/Viikkoraportti6.md)
 
 
 ## Dokumentaatio
