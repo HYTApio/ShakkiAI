@@ -87,3 +87,71 @@ class TestCheckmate(unittest.TestCase):
     def test_move_from_check(self):
         board = chess.Board('k7/8/q7/8/4K3/8/8/8 w KQkq - 0 1')
         self.assertEqual(checkmate.possible_moves(board, [40]), True)
+
+    def test_checkmate_from_two_directions(self):
+        board = chess.Board('k7/8/q7/q7/q3K3/q7/8/8 w KQkq - 0 1')
+        self.assertEqual(checkmate.possible_moves(board, [40, 24]), False)
+
+    def test_checkmate_from_left(self):
+        board = chess.Board('k7/8/8/q7/q3K3/q7/8/8 w KQkq - 0 1')
+        self.assertEqual(checkmate.possible_moves(board, [24]), False)
+
+    def test_checkmate_from_right(self):
+        board = chess.Board('k7/8/8/q7/4K2q/q7/8/8 w KQkq - 0 1')
+        self.assertEqual(checkmate.possible_moves(board, [31]), False)
+
+    def test_checkmate_from_above(self):
+        board = chess.Board('k2qqq2/8/8/q7/4K3/q7/8/8 w KQkq - 0 1')
+        self.assertEqual(checkmate.possible_moves(board, [60]), False)
+
+    def test_checkmate_from_below(self):
+        board = chess.Board('k7/8/8/q7/4K3/q7/8/3qqq2 w KQkq - 0 1')
+        self.assertEqual(checkmate.possible_moves(board, [4]), False)
+
+    def test_can_eliminate_checker_above(self):
+        board = chess.Board('k3q2Q/8/8/q7/4K3/q7/8/3q1q2 w KQkq - 0 1')
+        self.assertEqual(checkmate.possible_moves(board, [60]), True)
+
+    def test_can_eliminate_checker_below(self):
+        board = chess.Board('k7/8/8/q7/4K3/2Q5/8/3qqq2 w KQkq - 0 1')
+        self.assertEqual(checkmate.possible_moves(board, [4]), True)
+
+    def test_can_eliminate_checker_left(self):
+        board = chess.Board('k7/8/8/7q/q3K3/Q6q/8/8 w KQkq - 0 1')
+        self.assertEqual(checkmate.possible_moves(board, [24]), True)
+
+    def test_can_eliminate_checker_right(self):
+        board = chess.Board('k7/8/8/q7/4K2q/q6Q/8/8 w KQkq - 0 1')
+        self.assertEqual(checkmate.possible_moves(board, [31]), True)
+
+    def test_can_block_checker_above(self):
+        board = chess.Board('k3q3/7Q/8/q7/4K3/q7/8/3q1q2 w KQkq - 0 1')
+        self.assertEqual(checkmate.possible_moves(board, [60]), True)
+
+    def test_can_block_checker_below(self):
+        board = chess.Board('k2q1q2/8/8/8/4K3/8/Q7/4q3 w KQkq - 0 1')
+        self.assertEqual(checkmate.possible_moves(board, [4]), True)
+
+    def test_can_block_checker_left(self):
+        board = chess.Board('k7/8/8/7q/q3K3/3Q3q/8/8 w KQkq - 0 1')
+        self.assertEqual(checkmate.possible_moves(board, [24]), True)
+
+    def test_can_block_checker_right(self):
+        board = chess.Board('k7/8/8/q7/4K2q/q7/8/6Q1 w KQkq - 0 1')
+        self.assertEqual(checkmate.possible_moves(board, [31]), True)
+
+    def test_can_block_checker_right_up_diag(self):
+        board = chess.Board('k7/1q6/7Q/q7/4K3/q7/8/8 w KQkq - 0 1')
+        self.assertEqual(checkmate.possible_moves(board, [49]), True)
+
+    def test_can_block_checker_left_up_diag(self):
+        board = chess.Board('k7/7q/Q7/q7/4K3/q7/8/8 w KQkq - 0 1')
+        self.assertEqual(checkmate.possible_moves(board, [55]), True)
+
+    def test_can_block_checker_right_down_diag(self):
+        board = chess.Board('k7/8/8/q7/4K3/q7/7Q/1q6 w KQkq - 0 1')
+        self.assertEqual(checkmate.possible_moves(board, [1]), True)
+
+    def test_can_block_checker_left_down_diag(self):
+        board = chess.Board('k7/7q/Q7/q7/4K3/q7/Q7/7q w KQkq - 0 1')
+        self.assertEqual(checkmate.possible_moves(board, [7]), True)
