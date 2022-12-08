@@ -3,7 +3,7 @@ import chess
 
 
 def _below(board, turn, krank, kfile):
-    """Checks if king is attacked from below
+    """Checks if square is attacked from below
 
     returns True if it is
             False if not
@@ -21,7 +21,7 @@ def _below(board, turn, krank, kfile):
 
 
 def _above(board, turn, krank, kfile):
-    """Checks if king is attacked from above
+    """Checks if square is attacked from above
 
     returns True if it is
             False if not
@@ -40,7 +40,7 @@ def _above(board, turn, krank, kfile):
 
 
 def _left(board, turn, krank, kfile):
-    """Checks if king is attacked from left
+    """Checks if square is attacked from left
 
     returns True if it is
             False if not
@@ -59,7 +59,7 @@ def _left(board, turn, krank, kfile):
 
 
 def _right(board, turn, krank, kfile):
-    """Checks if king is attacked from right
+    """Checks if square is attacked from right
 
     returns True if it is
             False if not
@@ -78,7 +78,7 @@ def _right(board, turn, krank, kfile):
 
 
 def _diag_above(board, turn, krank, kfile):
-    """Checks if king is attacked diagonally from above
+    """Checks if square is attacked diagonally from above
 
     returns True if it is
             False if not
@@ -125,7 +125,7 @@ def _diag_above(board, turn, krank, kfile):
 
 
 def _diag_below(board, turn, krank, kfile):
-    """Checks if king is attacked diagonally from below
+    """Checks if square is attacked diagonally from below
 
     returns True if it is
             False if not
@@ -172,7 +172,7 @@ def _diag_below(board, turn, krank, kfile):
 
 
 def _knight(board, turn, krank, kfile):
-    """Checks if knight is attacking the king
+    """Checks if knight is attacking the square
 
     returns True if it is
             False if not
@@ -190,7 +190,7 @@ def _knight(board, turn, krank, kfile):
 
 
 def is_attacked(board, square):
-    """Checks if current game state is in check
+    """Checks if if given square is attacked
 
     return Boolean value
     """
@@ -219,7 +219,6 @@ def possible_moves(board, attacked):
     king = board.king(board.turn)
     krank = chess.square_rank(king)
     kfile = chess.square_file(king)
-
     # check possible king moves
     for rank in range(krank-1, krank+2):
         for file in range(kfile-1, kfile+2):
@@ -235,10 +234,15 @@ def possible_moves(board, attacked):
     if len(attacked) > 1:
         return False
 
+    if board.turn == chess.WHITE:
+        board.turn = chess.BLACK
+    else:
+        board.turn = chess.WHITE
+
     defended = []
     # checks if it is possible to kill the attacker
     for square in attacked:
-        if not is_attacked(board, square):
+        if is_attacked(board, square):
             defended.append(square)
 
     if len(defended)==len(attacked):
@@ -253,7 +257,6 @@ def possible_moves(board, attacked):
             if afile < kfile:
                 for file in range(kfile-1, -1, -1):
                     square_number = chess.square(file, krank)
-                    print(is_attacked(board, square_number))
                     if is_attacked(board, square_number):
                         defended.append(square_number)
                         break
