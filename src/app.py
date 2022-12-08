@@ -4,15 +4,16 @@ from checks.checkmate import possible_moves as checkmate
 from checks.check import is_check
 from ai.minmax import find_best_move
 
-BIG_NUMBER = 100000000000
-SMALL_NUMBER = -10000000000
-
 def play():
-    """Shakkipelin käyttöliittymä jolle annetaan siirtojen arvoja"""
+    """User interface for the chess game
+
+    User gives values to it as moves
+    """
     board = chess.Board()
     last_move = None
     while True:
         print(board)
+        #checks if the game is in check / checkmate
         check = is_check(board, last_move)
         if check[0]:
             print("shakki")
@@ -39,5 +40,6 @@ def play():
                         break
                 except:
                     print("väärä siirto kokeile uudestaan")
+
             board.push(chess.Move.from_uci(move))
             last_move = chess.Move.from_uci(move)

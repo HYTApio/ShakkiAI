@@ -49,6 +49,9 @@ def find_best_move(board):
     return best_move
 
 def _minmax(board, alpha, beta, depth, last_move):
+    """Min max algorithm that calls min and max value
+    functions return the best value
+    """
     check = is_check(board, last_move)
     if check[0]:
         if checkmate(board, check[1]) is False:
@@ -65,7 +68,8 @@ def _minmax(board, alpha, beta, depth, last_move):
 def _max_value(board, alpha, beta, depth, last_move):
     """ max value from min max
 
-    return best move and its value"""
+    return value
+    """
 
     value = SMALL_NUMBER
 
@@ -83,7 +87,7 @@ def _max_value(board, alpha, beta, depth, last_move):
 def _min_value(board, alpha, beta, depth, last_move):
     """ Min value from minmax
 
-    return best move and its value
+    return value
     """
 
     value = BIG_NUMBER
