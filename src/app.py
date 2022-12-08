@@ -1,8 +1,8 @@
 """ Module providing chess game base"""
 import chess
-from checkmate import possible_moves as checkmate
-from new_checkmate import is_check
-from minmax import find_best_move
+from checks.checkmate import possible_moves as checkmate
+from checks.check import is_check
+from ai.minmax import find_best_move
 
 BIG_NUMBER = 100000000000
 SMALL_NUMBER = -10000000000

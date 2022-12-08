@@ -1,5 +1,5 @@
 import unittest
-from new_checkmate import is_check
+from checks.check import is_check
 import chess
 
 

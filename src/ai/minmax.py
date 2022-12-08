@@ -1,8 +1,8 @@
 """ Timer for minmax loops"""
 import time
-from checkmate import possible_moves as checkmate
-from new_checkmate import is_check
-from heuristics import heuristic
+from checks.checkmate import possible_moves as checkmate
+from checks.check import is_check
+from ai.heuristics import heuristic
 
 BIG_NUMBER = 100000000000
 SMALL_NUMBER = -10000000000

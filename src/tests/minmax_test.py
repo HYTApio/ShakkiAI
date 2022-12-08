@@ -1,6 +1,6 @@
 import unittest
 import chess
-from minmax import find_best_move
+from ai.minmax import find_best_move
 
 
 class TestCheckmate(unittest.TestCase):

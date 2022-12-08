@@ -1,5 +1,5 @@
 import unittest
-import checkmate
+import checks.checkmate as checkmate
 import chess
 
 

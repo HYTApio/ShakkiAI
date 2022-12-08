@@ -1,6 +1,6 @@
 import unittest
 import chess
-from heuristics import heuristic
+from ai.heuristics import heuristic
 
 class TestHeuristic(unittest.TestCase):
     def setUp(self):

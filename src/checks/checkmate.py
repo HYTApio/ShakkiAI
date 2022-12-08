@@ -91,13 +91,13 @@ def _diag_above(board, turn, krank, kfile):
         rightkfile += 1
         leftkfile -= 1
         square_number = chess.square(rightkfile, rank)
-        if rightkfile == kfile+1 and (square_number < 64 and square_number > -1):
+        if rightkfile == kfile+1 and (-1 < square_number < 64):
             # if black pawn on square
             if board.piece_type_at(square_number) in [1] and board.color_at(square_number) != turn and turn == chess.WHITE:
                 return True
 
         square_number = chess.square(leftkfile, rank)
-        if leftkfile == kfile-1 and (square_number < 64 and square_number > -1):
+        if leftkfile == kfile-1 and (-1 < square_number < 64):
             # if black pawn on square
             if board.piece_type_at(square_number) in [1] and board.color_at(square_number) != turn and turn == chess.WHITE:
                 return True
@@ -138,13 +138,13 @@ def _diag_below(board, turn, krank, kfile):
         rightkfile += 1
         leftkfile -= 1
         square_number = chess.square(rightkfile, rank)
-        if rightkfile == kfile+1 and (square_number < 64 and square_number > -1) :
+        if rightkfile == kfile+1 and (-1 < square_number < 64) :
             # if white pawn on black king
             if board.piece_type_at(square_number) in [1] and board.color_at(square_number) != turn and turn == chess.BLACK:
                 return True
 
         square_number = chess.square(leftkfile, rank)
-        if leftkfile == kfile-1 and (square_number < 64 and square_number > -1):
+        if leftkfile == kfile-1 and (-1 < square_number < 64):
             # if white pawn on black king
             if board.piece_type_at(square_number) in [1] and board.color_at(square_number) != turn and turn == chess.BLACK:
                 return True
