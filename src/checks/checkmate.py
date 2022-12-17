@@ -229,7 +229,9 @@ def possible_moves(board, attacked):
                     copy.push(chess.Move(king, square_number))
                     copy.turn = turn
                     if not is_attacked(copy, square_number):
+                        copy.pop()
                         return True
+                    copy.pop()
 
     # if king is attacked from 2 different positions
     # must be checkmate
@@ -251,6 +253,7 @@ def possible_moves(board, attacked):
             defended.append(square)
 
     if len(defended)==len(attacked):
+        board.turn = turn
         return True
 
     defended = []
@@ -318,6 +321,7 @@ def possible_moves(board, attacked):
                         break
 
     if len(defended)==len(attacked):
+        board.turn = turn
         return True
-
+    board.turn = turn
     return False
