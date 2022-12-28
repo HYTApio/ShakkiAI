@@ -28,7 +28,7 @@ def play():
 
         if board.turn == chess.WHITE:
             print("valkoisen vuoro")
-            move = find_best_move(board)
+            move = find_best_move(board)[0]
             board.push(move)
             last_move = move
 

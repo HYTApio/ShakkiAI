@@ -46,7 +46,7 @@ def find_best_move(board):
         print(f"{depth} syvyyden aika: {end-start}s")
         if end - start > 2:
             break
-    return best_move
+    return (best_move, value)
 
 def _minmax(board, alpha, beta, depth, last_move):
     """Min max algorithm that calls min and max value
